@@ -1,0 +1,11 @@
+item_id,item_type,item_mrp,store_id
+1,Beverage,30,105
+2,Footwear,1200,106
+3,Electronics,2500,107
+4,Snacks,45,108
+5,Clothing,350,109
+6,Dairy,70,110
+7,Electronics,1800,105
+8,Clothing,600,106
+9,Food,50,104
+10,Electronics,1800,103
