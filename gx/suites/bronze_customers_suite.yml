@@ -1,0 +1,32 @@
+name: bronze_customers_suite
+expectations:
+
+  # ── Schema ─────────────────────────────────────────────────────────────────
+  - type: expect_column_to_exist
+    kwargs: {column: customer_id}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_unique_id}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_zip_code_prefix}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_city}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_state}
+
+  # ── Not null ───────────────────────────────────────────────────────────────
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: customer_id}
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: customer_state}
+
+  # ── Uniqueness ─────────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_unique
+    kwargs: {column: customer_id}
+
+  # ── Length checks ──────────────────────────────────────────────────────────
+  - type: expect_column_value_lengths_to_be_between
+    kwargs: {column: customer_state, min_value: 2, max_value: 2}
+
+  # ── Row count ──────────────────────────────────────────────────────────────
+  - type: expect_table_row_count_to_be_between
+    kwargs: {min_value: 1, max_value: 200000}

@@ -1,0 +1,40 @@
+name: silver_order_payments_suite
+expectations:
+
+  # ── Schema ─────────────────────────────────────────────────────────────────
+  - type: expect_column_to_exist
+    kwargs: {column: order_id}
+  - type: expect_column_to_exist
+    kwargs: {column: payment_type}
+  - type: expect_column_to_exist
+    kwargs: {column: payment_value}
+
+  # ── Not null ───────────────────────────────────────────────────────────────
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: order_id}
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: payment_type}
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: payment_value}
+
+  # ── Domain checks ──────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_in_set
+    kwargs:
+      column: payment_type
+      value_set: ["credit_card", "boleto", "voucher", "debit_card", "not_defined"]
+
+  # ── Range checks ───────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_between
+    kwargs:
+      column: payment_value
+      min_value: 0
+      max_value: 50000
+      mostly: 0.99
+
+  # ── Uniqueness ─────────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_unique
+    kwargs: {column: order_id}
+
+  # ── Row count ──────────────────────────────────────────────────────────────
+  - type: expect_table_row_count_to_be_between
+    kwargs: {min_value: 1, max_value: 200000}

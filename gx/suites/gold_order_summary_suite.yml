@@ -1,0 +1,71 @@
+name: gold_order_summary_suite
+expectations:
+
+  # ── Schema ─────────────────────────────────────────────────────────────────
+  - type: expect_column_to_exist
+    kwargs: {column: order_id}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_id}
+  - type: expect_column_to_exist
+    kwargs: {column: customer_state}
+  - type: expect_column_to_exist
+    kwargs: {column: order_status}
+  - type: expect_column_to_exist
+    kwargs: {column: delivery_days}
+  - type: expect_column_to_exist
+    kwargs: {column: is_late}
+  - type: expect_column_to_exist
+    kwargs: {column: review_score}
+  - type: expect_column_to_exist
+    kwargs: {column: review_category}
+  - type: expect_column_to_exist
+    kwargs: {column: payment_type}
+  - type: expect_column_to_exist
+    kwargs: {column: payment_value}
+
+  # ── Not null (critical business columns) ───────────────────────────────────
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: order_id}
+  - type: expect_column_values_to_not_be_null
+    kwargs: {column: customer_id}
+
+  # ── Uniqueness ─────────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_unique
+    kwargs: {column: order_id}
+
+  # ── Derived column domain checks ───────────────────────────────────────────
+  - type: expect_column_values_to_be_in_set
+    kwargs:
+      column: review_category
+      value_set: ["good", "neutral", "bad"]
+
+  - type: expect_column_values_to_be_in_set
+    kwargs:
+      column: is_late
+      value_set: [0, 1]
+
+  # ── Range checks ───────────────────────────────────────────────────────────
+  - type: expect_column_values_to_be_between
+    kwargs:
+      column: review_score
+      min_value: 1
+      max_value: 5
+      mostly: 0.95    # allow minor nulls from left join
+
+  - type: expect_column_values_to_be_between
+    kwargs:
+      column: delivery_days
+      min_value: 0
+      max_value: 180
+      mostly: 0.95
+
+  - type: expect_column_values_to_be_between
+    kwargs:
+      column: payment_value
+      min_value: 0
+      max_value: 50000
+      mostly: 0.99
+
+  # ── Row count ──────────────────────────────────────────────────────────────
+  - type: expect_table_row_count_to_be_between
+    kwargs: {min_value: 1, max_value: 200000}
