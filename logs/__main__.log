@@ -1,0 +1,55 @@
+2026-03-28 09:30:26 | INFO     | __main__ | Validating local.db.orders [BRONZE layer] …
+2026-03-28 09:33:08 | INFO     | __main__ | Validating local.db.orders [BRONZE layer] …
+2026-03-28 09:33:08 | INFO     | __main__ | Loaded suite from YAML: bronze_orders_suite.yml
+2026-03-28 09:33:23 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:23 | INFO     | __main__ | GX VALIDATION REPORT  |  local.db.orders
+2026-03-28 09:33:23 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:23 | INFO     | __main__ | Overall: ✅ PASSED  |  Passed: 12  Failed: 0  Total: 12
+2026-03-28 09:33:23 | INFO     | __main__ | ----------------------------------------------------------------
+2026-03-28 09:33:23 | INFO     | __main__ |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-28 09:33:23 | INFO     | __main__ |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-28 09:33:23 | INFO     | __main__ |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-28 09:33:23 | INFO     | __main__ |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 09:33:23 | INFO     | __main__ |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 09:33:23 | INFO     | __main__ |  6. ✅  expect_column_to_exist on [order_status]
+2026-03-28 09:33:23 | INFO     | __main__ |  7. ✅  expect_column_values_to_not_be_null on [order_status]
+2026-03-28 09:33:23 | INFO     | __main__ |  8. ✅  expect_column_values_to_be_in_set on [order_status] set=['delivered', 'shipped', 'processing', 'canceled', 'unavailable', 'invoiced', 'created', 'approved']
+2026-03-28 09:33:23 | INFO     | __main__ |  9. ✅  expect_column_to_exist on [order_purchase_timestamp]
+2026-03-28 09:33:23 | INFO     | __main__ | 10. ✅  expect_column_to_exist on [order_delivered_customer_date]
+2026-03-28 09:33:23 | INFO     | __main__ | 11. ✅  expect_column_to_exist on [order_estimated_delivery_date]
+2026-03-28 09:33:23 | INFO     | __main__ | 12. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 09:33:23 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:23 | INFO     | __main__ | Validating local.db.customers [BRONZE layer] …
+2026-03-28 09:33:23 | INFO     | __main__ | Loaded suite from YAML: bronze_customers_suite.yml
+2026-03-28 09:33:26 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:26 | INFO     | __main__ | GX VALIDATION REPORT  |  local.db.customers
+2026-03-28 09:33:26 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:26 | INFO     | __main__ | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-28 09:33:26 | INFO     | __main__ | ----------------------------------------------------------------
+2026-03-28 09:33:26 | INFO     | __main__ |  1. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 09:33:26 | INFO     | __main__ |  2. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 09:33:26 | INFO     | __main__ |  3. ✅  expect_column_values_to_be_unique on [customer_id]
+2026-03-28 09:33:26 | INFO     | __main__ |  4. ✅  expect_column_to_exist on [customer_unique_id]
+2026-03-28 09:33:26 | INFO     | __main__ |  5. ✅  expect_column_to_exist on [customer_zip_code_prefix]
+2026-03-28 09:33:26 | INFO     | __main__ |  6. ✅  expect_column_to_exist on [customer_city]
+2026-03-28 09:33:26 | INFO     | __main__ |  7. ✅  expect_column_to_exist on [customer_state]
+2026-03-28 09:33:26 | INFO     | __main__ |  8. ✅  expect_column_values_to_not_be_null on [customer_state]
+2026-03-28 09:33:26 | INFO     | __main__ |  9. ✅  expect_column_value_lengths_to_be_between on [customer_state] range=[2 – 2]
+2026-03-28 09:33:26 | INFO     | __main__ | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 09:33:26 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:26 | INFO     | __main__ | Validating local.db.silver_order_payments [SILVER layer] …
+2026-03-28 09:33:27 | ERROR    | __main__ | Cannot read table local.db.silver_order_payments: [TABLE_OR_VIEW_NOT_FOUND] The table or view db.silver_order_payments cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01
+2026-03-28 09:33:27 | INFO     | __main__ | Validating local.db.gold_order_summary [GOLD layer] …
+2026-03-28 09:33:27 | ERROR    | __main__ | Cannot read table local.db.gold_order_summary: [TABLE_OR_VIEW_NOT_FOUND] The table or view db.gold_order_summary cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01
+2026-03-28 09:33:27 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:27 | INFO     | __main__ | GX QUALITY CHECK SUMMARY  |  layer=ALL
+2026-03-28 09:33:27 | INFO     | __main__ | ================================================================
+2026-03-28 09:33:27 | INFO     | __main__ | ✅  local.db.orders  passed=12 failed=0 [CRITICAL]
+2026-03-28 09:33:27 | INFO     | __main__ | ✅  local.db.customers  passed=10 failed=0 [CRITICAL]
+2026-03-28 09:33:27 | INFO     | __main__ | ❌  local.db.silver_order_payments  passed=0 failed=1 [CRITICAL]
+2026-03-28 09:33:27 | INFO     | __main__ | ❌  local.db.gold_order_summary  passed=0 failed=1 [CRITICAL]
+2026-03-28 09:33:27 | CRITICAL | __main__ | Data quality FAILED on critical tables: ['local.db.silver_order_payments', 'local.db.gold_order_summary']. Pipeline halted.

@@ -1,0 +1,41 @@
+# config/settings.yaml
+# ---------------------
+# Olist Data Engineering Project — runtime configuration.
+# Override any value using environment variables.
+
+spark:
+  app_name: olist-pipeline
+  mode: local                  # 'local' | 'aws'
+  master: "local[*]"
+  log_level: ERROR
+
+paths:
+  data_root: /home/rohan/projects/airflow/data
+  warehouse: /home/rohan/projects/airflow/data_warehouse/iceberg_warehouse
+  iceberg_jar: /home/rohan/projects/airflow/data_warehouse/iceberg-spark-runtime-4.0_2.13-1.10.1.jar
+  logs: /home/rohan/projects/airflow/logs
+
+iceberg:
+  catalog: local
+  namespace: db
+  format: parquet
+  compression: snappy
+  max_records_per_file: 500000
+  coalesce_partitions: 3
+
+pipeline:
+  bronze_retries: 2
+  silver_retries: 2
+  gold_retries: 2
+
+logging:
+  level: INFO
+  max_bytes: 5242880   # 5 MB
+  backup_count: 5
+
+airflow:
+  schedule: "@daily"
+  catchup: false
+  max_active_runs: 1
+  default_retries: 2
+  retry_delay_minutes: 5

@@ -1,0 +1,22 @@
+2026-03-27 13:52:39,588  -  INFO  -  Spark session created successfully.
+2026-03-27 13:55:46,830  -  INFO  -  Closing down clientserver connection
+2026-03-27 14:05:40,522  -  INFO  -  Null value counts for customers dataset: [Row(customer_id=0, customer_unique_id=0, customer_zip_code_prefix=0, customer_city=0, customer_state=0)]
+2026-03-27 14:06:33,408  -  INFO  -  Null value counts for customers dataset: [Row(customer_id=0, customer_unique_id=0, customer_zip_code_prefix=0, customer_city=0, customer_state=0)]
+2026-03-27 17:16:54,709 - INFO - General info
+2026-03-27 17:16:54,709 - WARNING - Something unexpected
+2026-03-27 17:16:54,710 - ERROR - Error occurred
+2026-03-27 17:16:54,710 - CRITICAL - System failure
+2026-03-27 17:16:57,748 - WARNING - Attempt 1 failed: API failed
+2026-03-27 17:16:58,752 - WARNING - Attempt 2 failed: API failed
+2026-03-27 17:16:59,755 - WARNING - Attempt 3 failed: API failed
+2026-03-27 17:17:02,233 - ERROR - Something failed
+Traceback (most recent call last):
+  File "/tmp/ipykernel_6613/1209270164.py", line 2, in <module>
+    1 / 0
+    ~~^~~
+ZeroDivisionError: division by zero
+2026-03-27 17:17:06,673 - ERROR - Error occurred: division by zero
+2026-03-28 13:24:21,635 - INFO - General info
+2026-03-28 13:24:21,636 - WARNING - Something unexpected
+2026-03-28 13:24:21,637 - ERROR - Error occurred
+2026-03-28 13:24:21,637 - CRITICAL - System failure

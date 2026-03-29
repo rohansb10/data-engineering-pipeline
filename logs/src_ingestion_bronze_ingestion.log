@@ -1,0 +1,59 @@
+2026-03-28 13:17:59 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/customers_dataset.csv → local.db.customers
+2026-03-28 13:18:03 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.customers loaded  rows=99441  partition=customer_state
+2026-03-28 13:18:03 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/geolocation_dataset.csv → local.db.geolocation
+2026-03-28 13:18:09 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.geolocation loaded  rows=1000163  partition=geolocation_state
+2026-03-28 13:18:09 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/orders_dataset.csv → local.db.orders
+2026-03-28 13:18:11 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.orders loaded  rows=99441  partition=order_status
+2026-03-28 13:18:11 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_items_dataset.csv → local.db.order_items
+2026-03-28 13:18:12 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_items loaded  rows=112650  partition=none
+2026-03-28 13:18:12 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_reviews_dataset.csv → local.db.order_reviews
+2026-03-28 13:18:13 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_reviews loaded  rows=105189  partition=none
+2026-03-28 13:18:13 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_payments_dataset.csv → local.db.order_payments
+2026-03-28 13:18:14 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_payments loaded  rows=103886  partition=payment_type
+2026-03-28 13:18:14 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/product_category_name_translation.csv → local.db.product_category_translation
+2026-03-28 13:18:14 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.product_category_translation loaded  rows=71  partition=none
+2026-03-28 13:18:14 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/products_dataset.csv → local.db.products
+2026-03-28 13:18:16 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.products loaded  rows=32951  partition=product_category_name
+2026-03-28 13:18:16 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/sellers_dataset.csv → local.db.sellers
+2026-03-28 13:18:16 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.sellers loaded  rows=3095  partition=seller_state
+2026-03-28 13:18:16 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅
+2026-03-28 13:36:08 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_reviews_dataset.csv → local.db.order_reviews
+2026-03-28 13:36:16 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_reviews loaded  rows=100034  partition=none
+2026-03-28 13:37:14 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/customers_dataset.csv → local.db.customers
+2026-03-28 13:37:19 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.customers loaded  rows=99441  partition=customer_state
+2026-03-28 13:37:19 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/geolocation_dataset.csv → local.db.geolocation
+2026-03-28 13:37:22 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.geolocation loaded  rows=1000163  partition=geolocation_state
+2026-03-28 13:37:22 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/orders_dataset.csv → local.db.orders
+2026-03-28 13:37:25 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.orders loaded  rows=99441  partition=order_status
+2026-03-28 13:37:25 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_items_dataset.csv → local.db.order_items
+2026-03-28 13:37:26 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_items loaded  rows=112650  partition=none
+2026-03-28 13:37:26 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_reviews_dataset.csv → local.db.order_reviews
+2026-03-28 13:37:27 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_reviews loaded  rows=100034  partition=none
+2026-03-28 13:37:27 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_payments_dataset.csv → local.db.order_payments
+2026-03-28 13:37:28 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_payments loaded  rows=103886  partition=payment_type
+2026-03-28 13:37:28 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/product_category_name_translation.csv → local.db.product_category_translation
+2026-03-28 13:37:28 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.product_category_translation loaded  rows=71  partition=none
+2026-03-28 13:37:28 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/products_dataset.csv → local.db.products
+2026-03-28 13:37:29 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.products loaded  rows=32951  partition=product_category_name
+2026-03-28 13:37:29 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/sellers_dataset.csv → local.db.sellers
+2026-03-28 13:37:30 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.sellers loaded  rows=3095  partition=seller_state
+2026-03-28 13:37:30 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅
+2026-03-29 04:58:34 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/customers_dataset.csv → local.db.customers
+2026-03-29 04:58:40 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.customers loaded  rows=99441  partition=customer_state
+2026-03-29 04:58:40 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/geolocation_dataset.csv → local.db.geolocation
+2026-03-29 04:58:44 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.geolocation loaded  rows=1000163  partition=geolocation_state
+2026-03-29 04:58:44 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/orders_dataset.csv → local.db.orders
+2026-03-29 04:58:46 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.orders loaded  rows=99441  partition=order_status
+2026-03-29 04:58:46 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_items_dataset.csv → local.db.order_items
+2026-03-29 04:58:47 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_items loaded  rows=112650  partition=none
+2026-03-29 04:58:47 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_reviews_dataset.csv → local.db.order_reviews
+2026-03-29 04:58:49 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_reviews loaded  rows=100034  partition=none
+2026-03-29 04:58:49 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_payments_dataset.csv → local.db.order_payments
+2026-03-29 04:58:49 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_payments loaded  rows=103886  partition=payment_type
+2026-03-29 04:58:49 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/product_category_name_translation.csv → local.db.product_category_translation
+2026-03-29 04:58:50 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.product_category_translation loaded  rows=71  partition=none
+2026-03-29 04:58:50 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/products_dataset.csv → local.db.products
+2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.products loaded  rows=32951  partition=product_category_name
+2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/sellers_dataset.csv → local.db.sellers
+2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.sellers loaded  rows=3095  partition=seller_state
+2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅

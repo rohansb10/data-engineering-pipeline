@@ -1,0 +1,26 @@
+2026-03-28 17:12:25 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_orders
+2026-03-28 17:12:27 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_customers
+2026-03-28 17:12:27 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_reviews
+2026-03-28 17:12:27 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_payments
+2026-03-28 17:12:29 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_order_summary  rows=99441
+2026-03-28 17:12:32 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_order_summary
+2026-03-28 17:12:32 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_items
+2026-03-28 17:12:33 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_revenue_by_order  rows=98666
+2026-03-28 17:12:34 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_revenue_by_order
+2026-03-28 17:12:34 | INFO     | src.transform.gold_transform | Reading silver table: local.db.gold_order_summary
+2026-03-28 17:12:34 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_state_payment_agg  rows=107
+2026-03-28 17:12:35 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_state_payment_agg
+2026-03-28 17:12:35 | INFO     | src.transform.gold_transform | Gold transform complete ✅
+2026-03-29 05:00:43 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_orders
+2026-03-29 05:00:46 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_customers
+2026-03-29 05:00:46 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_reviews
+2026-03-29 05:00:46 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_payments
+2026-03-29 05:00:53 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_order_summary  rows=99441
+2026-03-29 05:00:57 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_order_summary
+2026-03-29 05:00:57 | INFO     | src.transform.gold_transform | Reading silver table: local.db.silver_order_items
+2026-03-29 05:00:58 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_revenue_by_order  rows=98666
+2026-03-29 05:01:00 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_revenue_by_order
+2026-03-29 05:01:00 | INFO     | src.transform.gold_transform | Reading silver table: local.db.gold_order_summary
+2026-03-29 05:01:00 | INFO     | src.transform.gold_transform | Writing gold table: local.db.gold_state_payment_agg  rows=107
+2026-03-29 05:01:01 | INFO     | src.transform.gold_transform | ✅ Gold table ready: local.db.gold_state_payment_agg
+2026-03-29 05:01:01 | INFO     | src.transform.gold_transform | Gold transform complete ✅

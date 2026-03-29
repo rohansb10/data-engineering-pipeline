@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Mar 28 17:16:58 UTC 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-019d-3572-f02b-00000286b7b0 
+on database directory /home/rohan/projects/airflow/metastore_db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
+Loaded from file:/home/rohan/projects/airflow/.venv/lib/python3.12/site-packages/pyspark/jars/derby-10.16.1.1.jar
+java.vendor=Ubuntu
+java.runtime.version=21.0.10+7-Ubuntu-124.04
+user.dir=/home/rohan/projects/airflow
+os.name=Linux
+os.arch=amd64
+os.version=6.6.87.1-microsoft-standard-WSL2
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

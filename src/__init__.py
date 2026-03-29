@@ -1,0 +1,1 @@
+"""Olist pipeline application package."""

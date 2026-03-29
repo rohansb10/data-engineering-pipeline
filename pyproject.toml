@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "olist-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "apache-airflow==3.1.7",
+    "apache-airflow-providers-apache-spark",
+    "dbt-core>=1.11.6",
+    "dbt-postgres>=1.10.0",
+    "great-expectations>=1.15.1",
+    "pandas>=2.3.3",
+    "pyspark>=4.1.1",
+    "pytest>=9.0.2",
+    "setuptools>=82.0.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

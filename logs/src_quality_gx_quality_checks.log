@@ -1,0 +1,235 @@
+2026-03-28 13:18:31 | INFO     | src.quality.gx_quality_checks | Validating local.db.orders [BRONZE layer] …
+2026-03-28 13:18:33 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_orders_suite.yml
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.orders
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 12  Failed: 0  Total: 12
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [order_status]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_values_to_not_be_null on [order_status]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_be_in_set on [order_status] set=['delivered', 'shipped', 'processing', 'canceled', 'unavailable', 'invoiced', 'created', 'approved']
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_to_exist on [order_purchase_timestamp]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [order_delivered_customer_date]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_to_exist on [order_estimated_delivery_date]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | Validating local.db.customers [BRONZE layer] …
+2026-03-28 13:18:39 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_customers_suite.yml
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.customers
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [customer_id]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_unique_id]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_to_exist on [customer_zip_code_prefix]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [customer_city]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [customer_state]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_not_be_null on [customer_state]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_value_lengths_to_be_between on [customer_state] range=[2 – 2]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ✅  local.db.orders  passed=12 failed=0 [CRITICAL]
+2026-03-28 13:18:41 | INFO     | src.quality.gx_quality_checks | ✅  local.db.customers  passed=10 failed=0 [CRITICAL]
+2026-03-28 13:37:43 | INFO     | src.quality.gx_quality_checks | Validating local.db.orders [BRONZE layer] …
+2026-03-28 13:37:45 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_orders_suite.yml
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.orders
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 12  Failed: 0  Total: 12
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [order_status]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_values_to_not_be_null on [order_status]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_be_in_set on [order_status] set=['delivered', 'shipped', 'processing', 'canceled', 'unavailable', 'invoiced', 'created', 'approved']
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_to_exist on [order_purchase_timestamp]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [order_delivered_customer_date]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_to_exist on [order_estimated_delivery_date]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | Validating local.db.customers [BRONZE layer] …
+2026-03-28 13:37:53 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_customers_suite.yml
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.customers
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [customer_id]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_unique_id]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_to_exist on [customer_zip_code_prefix]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [customer_city]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [customer_state]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_not_be_null on [customer_state]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_value_lengths_to_be_between on [customer_state] range=[2 – 2]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ✅  local.db.orders  passed=12 failed=0 [CRITICAL]
+2026-03-28 13:37:58 | INFO     | src.quality.gx_quality_checks | ✅  local.db.customers  passed=10 failed=0 [CRITICAL]
+2026-03-28 17:12:07 | INFO     | src.quality.gx_quality_checks | Validating local.db.silver_order_payments [SILVER layer] …
+2026-03-28 17:12:09 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: silver_order_payments_suite.yml
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.silver_order_payments
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [payment_type]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [payment_type]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_values_to_be_in_set on [payment_type] set=['credit_card', 'boleto', 'voucher', 'debit_card', 'not_defined']
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [payment_value]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_not_be_null on [payment_value]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_values_to_be_between on [payment_value] range=[0.0 – 50000.0] mostly=99%
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=SILVER
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:18 | INFO     | src.quality.gx_quality_checks | ✅  local.db.silver_order_payments  passed=10 failed=0 [CRITICAL]
+2026-03-28 17:12:44 | INFO     | src.quality.gx_quality_checks | Validating local.db.gold_order_summary [GOLD layer] …
+2026-03-28 17:12:46 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: gold_order_summary_suite.yml
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.gold_order_summary
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 19  Failed: 0  Total: 19
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [customer_state]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [order_status]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_to_exist on [delivery_days]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_values_to_be_between on [delivery_days] range=[0.0 – 180.0] mostly=95%
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [is_late]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_values_to_be_in_set on [is_late] set=[0, 1]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_column_to_exist on [review_score]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 13. ✅  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=95%
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 14. ✅  expect_column_to_exist on [review_category]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 15. ✅  expect_column_values_to_be_in_set on [review_category] set=['good', 'neutral', 'bad']
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 16. ✅  expect_column_to_exist on [payment_type]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 17. ✅  expect_column_to_exist on [payment_value]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 18. ✅  expect_column_values_to_be_between on [payment_value] range=[0.0 – 50000.0] mostly=99%
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | 19. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=GOLD
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-28 17:12:56 | INFO     | src.quality.gx_quality_checks | ✅  local.db.gold_order_summary  passed=19 failed=0 [CRITICAL]
+2026-03-29 04:59:09 | INFO     | src.quality.gx_quality_checks | Validating local.db.orders [BRONZE layer] …
+2026-03-29 04:59:09 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_orders_suite.yml
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.orders
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 12  Failed: 0  Total: 12
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [order_status]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_values_to_not_be_null on [order_status]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_be_in_set on [order_status] set=['delivered', 'shipped', 'processing', 'canceled', 'unavailable', 'invoiced', 'created', 'approved']
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_to_exist on [order_purchase_timestamp]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [order_delivered_customer_date]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_to_exist on [order_estimated_delivery_date]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | Validating local.db.customers [BRONZE layer] …
+2026-03-29 04:59:24 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_customers_suite.yml
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.customers
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [customer_id]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [customer_id]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_unique_id]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_to_exist on [customer_zip_code_prefix]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [customer_city]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [customer_state]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_not_be_null on [customer_state]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_value_lengths_to_be_between on [customer_state] range=[2 – 2]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ✅  local.db.orders  passed=12 failed=0 [CRITICAL]
+2026-03-29 04:59:28 | INFO     | src.quality.gx_quality_checks | ✅  local.db.customers  passed=10 failed=0 [CRITICAL]
+2026-03-29 05:00:24 | INFO     | src.quality.gx_quality_checks | Validating local.db.silver_order_payments [SILVER layer] …
+2026-03-29 05:00:27 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: silver_order_payments_suite.yml
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.silver_order_payments
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 10  Failed: 0  Total: 10
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [payment_type]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [payment_type]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_values_to_be_in_set on [payment_type] set=['credit_card', 'boleto', 'voucher', 'debit_card', 'not_defined']
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [payment_value]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_not_be_null on [payment_value]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_values_to_be_between on [payment_value] range=[0.0 – 50000.0] mostly=99%
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=SILVER
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:00:36 | INFO     | src.quality.gx_quality_checks | ✅  local.db.silver_order_payments  passed=10 failed=0 [CRITICAL]
+2026-03-29 05:01:11 | INFO     | src.quality.gx_quality_checks | Validating local.db.gold_order_summary [GOLD layer] …
+2026-03-29 05:01:13 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: gold_order_summary_suite.yml
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.gold_order_summary
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 19  Failed: 0  Total: 19
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [customer_state]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_to_exist on [order_status]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_to_exist on [delivery_days]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_values_to_be_between on [delivery_days] range=[0.0 – 180.0] mostly=95%
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [is_late]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_values_to_be_in_set on [is_late] set=[0, 1]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_column_to_exist on [review_score]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 13. ✅  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=95%
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 14. ✅  expect_column_to_exist on [review_category]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 15. ✅  expect_column_values_to_be_in_set on [review_category] set=['good', 'neutral', 'bad']
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 16. ✅  expect_column_to_exist on [payment_type]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 17. ✅  expect_column_to_exist on [payment_value]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 18. ✅  expect_column_values_to_be_between on [payment_value] range=[0.0 – 50000.0] mostly=99%
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | 19. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=GOLD
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ✅  local.db.gold_order_summary  passed=19 failed=0 [CRITICAL]

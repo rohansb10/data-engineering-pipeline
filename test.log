@@ -1,0 +1,3 @@
+Closing down clientserver connection
+Null value counts for customers dataset: [Row(customer_id=0, customer_unique_id=0, customer_zip_code_prefix=0, customer_city=0, customer_state=0)]
+Null value counts for customers dataset: [Row(customer_id=0, customer_unique_id=0, customer_zip_code_prefix=0, customer_city=0, customer_state=0)]
