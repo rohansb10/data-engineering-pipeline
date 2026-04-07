@@ -11,8 +11,6 @@ requires-python = ">=3.10"
 dependencies = [
     "apache-airflow==3.1.7",
     "apache-airflow-providers-apache-spark",
-    "dbt-core>=1.11.6",
-    "dbt-postgres>=1.10.0",
     "great-expectations>=1.15.1",
     "pandas>=2.3.3",
     "pyspark>=4.1.1",
