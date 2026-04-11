@@ -1,10 +1,69 @@
-# Python-generated files
+# Python bytecode and caches
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+
+# Build and packaging artifacts
 build/
 dist/
+site/
 wheels/
-*.egg-info
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
 
-# Virtual environments
-.venv
+# Virtual environments and local Python config
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Test and coverage output
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/ 
+
+# Environment and local app config
+.env
+.env.*
+*.local
+.codex
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Jupyter artifacts
+.ipynb_checkpoints/
+
+# Airflow local runtime artifacts
+airflow.db
+airflow.cfg
+airflow-webserver.pid
+webserver_config.py
+unittests.cfg
+
+# Logs and runtime output
+logs/
+*.log
+test.log
+derby.log
+
+# Spark / warehouse generated data
+metastore_db/
+spark-warehouse/
+data_warehouse/iceberg_warehouse/
+data_warehouse/metastore_db/
+data_warehouse/warehouse/
+
+jupyter_notebook.ipynb

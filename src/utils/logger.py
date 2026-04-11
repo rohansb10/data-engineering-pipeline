@@ -15,8 +15,7 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-LOG_DIR = os.getenv("LOG_DIR", "/home/rohan/projects/airflow/logs")
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+from src.config.runtime import get_runtime_settings
 
 
 def get_logger(name: str, log_file: str | None = None) -> logging.Logger:
@@ -31,12 +30,19 @@ def get_logger(name: str, log_file: str | None = None) -> logging.Logger:
         Override the log file path. Defaults to ``<LOG_DIR>/<name>.log``.
     """
     logger = logging.getLogger(name)
+    settings = get_runtime_settings()
+    logging_cfg = settings["logging"]
+    logs_dir = os.getenv("LOG_DIR", settings["paths"]["logs"])
+    level_name = os.getenv("LOG_LEVEL", str(logging_cfg["level"])).upper()
+    logger_level = getattr(logging, level_name, logging.INFO)
 
     # Avoid adding duplicate handlers when module is re-imported
     if logger.handlers:
+        logger.setLevel(logger_level)
         return logger
 
-    logger.setLevel(getattr(logging, LOG_LEVEL, logging.INFO))
+    logger.setLevel(logger_level)
+    logger.propagate = False
 
     fmt = logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
@@ -49,14 +55,14 @@ def get_logger(name: str, log_file: str | None = None) -> logging.Logger:
     logger.addHandler(console_handler)
 
     # ── Rotating file handler ────────────────────────────────────────────────
-    os.makedirs(LOG_DIR, exist_ok=True)
+    os.makedirs(logs_dir, exist_ok=True)
     safe_name = name.replace(".", "_")
-    file_path = log_file or os.path.join(LOG_DIR, f"{safe_name}.log")
+    file_path = log_file or os.path.join(logs_dir, f"{safe_name}.log")
 
     file_handler = RotatingFileHandler(
         file_path,
-        maxBytes=5 * 1024 * 1024,   # 5 MB per file
-        backupCount=5,
+        maxBytes=int(logging_cfg["max_bytes"]),
+        backupCount=int(logging_cfg["backup_count"]),
     )
     file_handler.setFormatter(fmt)
     logger.addHandler(file_handler)

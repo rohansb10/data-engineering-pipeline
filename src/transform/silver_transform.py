@@ -9,17 +9,16 @@ the same catalog under ``local.db`` (prefixed with ``silver_``).
 
 from __future__ import annotations
 import sys
-import os
-
-sys.path.append("/home/rohan/projects/airflow")
 
 from pyspark.sql import SparkSession, DataFrame
 from pyspark.sql.functions import col, datediff, expr, when
 
+from src.config.runtime import fq_table, get_runtime_settings
 from src.utils.spark_session import get_spark_session
 from src.utils.logger import get_logger
 
 log = get_logger(__name__)
+SETTINGS = get_runtime_settings()
 
 
 # ---------------------------------------------------------------------------
@@ -44,7 +43,7 @@ def _write(df: DataFrame, table: str) -> None:
 
 def clean_orders(spark: SparkSession) -> DataFrame:
     """Cast timestamps, drop nulls, deduplicate, add delivery_days feature."""
-    orders = _read(spark, "local.db.orders")
+    orders = _read(spark, fq_table("orders", SETTINGS))
     orders = (
         orders
         .dropDuplicates(["order_id"])
@@ -74,7 +73,7 @@ def clean_orders(spark: SparkSession) -> DataFrame:
 
 def clean_customers(spark: SparkSession) -> DataFrame:
     return (
-        _read(spark, "local.db.customers")
+        _read(spark, fq_table("customers", SETTINGS))
         .dropDuplicates(["customer_id"])
         .filter(col("customer_id").isNotNull())
     )
@@ -84,7 +83,7 @@ def clean_order_reviews(spark: SparkSession) -> DataFrame:
     # review_score must be int; mis-parsed CSV rows can put timestamps in this column.
     # try_cast avoids CAST_INVALID_INPUT; null scores get category "unknown".
     return (
-        _read(spark, "local.db.order_reviews")
+        _read(spark, fq_table("order_reviews", SETTINGS))
         .dropDuplicates(["order_id"])
         .filter(col("order_id").isNotNull())
         .withColumn(
@@ -103,7 +102,7 @@ def clean_order_reviews(spark: SparkSession) -> DataFrame:
 
 def clean_order_payments(spark: SparkSession) -> DataFrame:
     return (
-        _read(spark, "local.db.order_payments")
+        _read(spark, fq_table("order_payments", SETTINGS))
         .dropDuplicates(["order_id"])
         .filter(col("order_id").isNotNull())
         .filter(col("payment_value").isNotNull())
@@ -113,15 +112,15 @@ def clean_order_payments(spark: SparkSession) -> DataFrame:
 
 def clean_order_items(spark: SparkSession) -> DataFrame:
     return (
-        _read(spark, "local.db.order_items")
+        _read(spark, fq_table("order_items", SETTINGS))
         .dropDuplicates(["order_id"])
         .filter(col("order_id").isNotNull())
     )
 
 
 def clean_products(spark: SparkSession) -> DataFrame:
-    products = _read(spark, "local.db.products")
-    category_xlat = _read(spark, "local.db.product_category_translation")
+    products = _read(spark, fq_table("products", SETTINGS))
+    category_xlat = _read(spark, fq_table("product_category_translation", SETTINGS))
     return (
         products
         .filter(col("product_id").isNotNull())
@@ -137,12 +136,12 @@ def run_silver_transform(spark: SparkSession | None = None) -> None:
     spark = spark or get_spark_session(app_name="olist-silver")
 
     steps = {
-        "local.db.silver_orders":        clean_orders,
-        "local.db.silver_customers":     clean_customers,
-        "local.db.silver_order_reviews": clean_order_reviews,
-        "local.db.silver_order_payments": clean_order_payments,
-        "local.db.silver_order_items":   clean_order_items,
-        "local.db.silver_products":      clean_products,
+        fq_table("silver_orders", SETTINGS):         clean_orders,
+        fq_table("silver_customers", SETTINGS):      clean_customers,
+        fq_table("silver_order_reviews", SETTINGS):  clean_order_reviews,
+        fq_table("silver_order_payments", SETTINGS): clean_order_payments,
+        fq_table("silver_order_items", SETTINGS):    clean_order_items,
+        fq_table("silver_products", SETTINGS):       clean_products,
     }
 
     failed = []
@@ -157,7 +156,7 @@ def run_silver_transform(spark: SparkSession | None = None) -> None:
 
     if failed:
         log.error("Silver transform finished with failures: %s", failed)
-        sys.exit(1)
+        raise RuntimeError(f"Silver transform failed for tables: {failed}")
     else:
         log.info("Silver transform complete ✅")
 
@@ -167,4 +166,7 @@ def run_silver_transform(spark: SparkSession | None = None) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    run_silver_transform()
+    try:
+        run_silver_transform()
+    except RuntimeError:
+        sys.exit(1)

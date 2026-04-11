@@ -4,28 +4,56 @@ olist_medallion_dag.py (TaskFlow API version)
 
 from __future__ import annotations
 from datetime import datetime, timedelta
+from pathlib import Path
+
+import yaml
 
 from airflow import DAG
 from airflow.decorators import task
 from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.task.trigger_rule import TriggerRule
 
+
+def _load_airflow_cfg() -> dict:
+    defaults = {
+        "schedule": "@daily",
+        "catchup": False,
+        "max_active_runs": 1,
+        "default_retries": 2,
+        "retry_delay_minutes": 5,
+        "email_on_failure": False,
+        "email_on_retry": False,
+    }
+    cfg_path = Path(__file__).resolve().parents[1] / "src" / "config" / "settings.yaml"
+    if not cfg_path.exists():
+        return defaults
+
+    with cfg_path.open("r", encoding="utf-8") as fh:
+        loaded = yaml.safe_load(fh) or {}
+
+    airflow_cfg = loaded.get("airflow", {})
+    return {**defaults, **airflow_cfg}
+
+
+AIRFLOW_CFG = _load_airflow_cfg()
+
 DEFAULT_ARGS = {
     "owner": "data-engineering",
     "depends_on_past": False,
-    "email_on_failure": True,
-    "email_on_retry": False,
-    "retries": 2,
-    "retry_delay": timedelta(minutes=5),
+    "email_on_failure": AIRFLOW_CFG["email_on_failure"],
+    "email_on_retry": AIRFLOW_CFG["email_on_retry"],
+    "retries": AIRFLOW_CFG["default_retries"],
+    "retry_delay": timedelta(minutes=AIRFLOW_CFG["retry_delay_minutes"]),
 }
 
 with DAG(
     dag_id="medallion_pipeline_taskflow",
     description="Olist Bronze → Silver → Gold with GX quality gates",
     default_args=DEFAULT_ARGS,
-    start_date=datetime(2024, 1, 1), 
-    catchup=False,
-    max_active_runs=1,
+    start_date=datetime(2024, 1, 1),
+    schedule=AIRFLOW_CFG["schedule"],
+    catchup=AIRFLOW_CFG["catchup"],
+    max_active_runs=AIRFLOW_CFG["max_active_runs"],
     tags=["olist", "iceberg", "medallion", "pyspark", "great-expectations"],
 ) as dag:
 

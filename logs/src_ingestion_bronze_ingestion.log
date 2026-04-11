@@ -57,3 +57,38 @@
 2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/sellers_dataset.csv → local.db.sellers
 2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.sellers loaded  rows=3095  partition=seller_state
 2026-03-29 04:58:52 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅
+2026-04-08 12:09:31 | INFO     | src.ingestion.bronze_ingestion | Ingesting /tmp/pytest-of-rohan/pytest-0/test_success_path0/test.csv → local.db.test_table
+2026-04-08 12:09:35 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.test_table loaded  rows=2  partition=none
+2026-04-08 12:09:35 | INFO     | src.ingestion.bronze_ingestion | Ingesting /nonexistent/nonexistent.csv → local.db.missing
+2026-04-08 12:09:35 | ERROR    | src.ingestion.bronze_ingestion | Source CSV not found: /nonexistent/nonexistent.csv
+2026-04-08 12:11:14 | INFO     | src.ingestion.bronze_ingestion | Ingesting /tmp/pytest-of-rohan/pytest-1/test_success_path0/test.csv → local.db.test_table
+2026-04-08 12:11:17 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.test_table loaded  rows=2  partition=none
+2026-04-08 12:11:17 | INFO     | src.ingestion.bronze_ingestion | Ingesting /nonexistent/nonexistent.csv → local.db.missing
+2026-04-08 12:11:17 | ERROR    | src.ingestion.bronze_ingestion | Source CSV not found: /nonexistent/nonexistent.csv
+2026-04-08 12:11:18 | WARNING  | src.ingestion.bronze_ingestion | Namespace create failed for local.db, falling back to db: [REQUIRES_SINGLE_PART_NAMESPACE] spark_catalog requires a single-part namespace, but got `local`.`db`. SQLSTATE: 42K05
+2026-04-08 12:11:18 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅
+2026-04-08 12:12:21 | INFO     | src.ingestion.bronze_ingestion | Ingesting /tmp/pytest-of-rohan/pytest-2/test_success_path0/test.csv → local.db.test_table
+2026-04-08 12:12:24 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.test_table loaded  rows=2  partition=none
+2026-04-08 12:12:24 | INFO     | src.ingestion.bronze_ingestion | Ingesting /nonexistent/nonexistent.csv → local.db.missing
+2026-04-08 12:12:24 | ERROR    | src.ingestion.bronze_ingestion | Source CSV not found: /nonexistent/nonexistent.csv
+2026-04-08 12:12:24 | WARNING  | src.ingestion.bronze_ingestion | Namespace create failed for local.db, falling back to db: [REQUIRES_SINGLE_PART_NAMESPACE] spark_catalog requires a single-part namespace, but got `local`.`db`. SQLSTATE: 42K05
+2026-04-08 12:12:24 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅
+2026-04-08 12:14:24 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/customers_dataset.csv → local.db.customers
+2026-04-08 12:14:31 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.customers loaded  rows=99441  partition=customer_state
+2026-04-08 12:14:31 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/geolocation_dataset.csv → local.db.geolocation
+2026-04-08 12:14:36 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.geolocation loaded  rows=1000163  partition=geolocation_state
+2026-04-08 12:14:36 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/orders_dataset.csv → local.db.orders
+2026-04-08 12:14:37 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.orders loaded  rows=99441  partition=order_status
+2026-04-08 12:14:37 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_items_dataset.csv → local.db.order_items
+2026-04-08 12:14:39 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_items loaded  rows=112650  partition=none
+2026-04-08 12:14:39 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_reviews_dataset.csv → local.db.order_reviews
+2026-04-08 12:14:41 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_reviews loaded  rows=100034  partition=none
+2026-04-08 12:14:41 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/order_payments_dataset.csv → local.db.order_payments
+2026-04-08 12:14:43 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.order_payments loaded  rows=103886  partition=payment_type
+2026-04-08 12:14:43 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/product_category_name_translation.csv → local.db.product_category_translation
+2026-04-08 12:14:43 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.product_category_translation loaded  rows=71  partition=none
+2026-04-08 12:14:43 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/products_dataset.csv → local.db.products
+2026-04-08 12:14:46 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.products loaded  rows=32951  partition=product_category_name
+2026-04-08 12:14:46 | INFO     | src.ingestion.bronze_ingestion | Ingesting /home/rohan/projects/airflow/data/sellers_dataset.csv → local.db.sellers
+2026-04-08 12:14:47 | INFO     | src.ingestion.bronze_ingestion | ✅ local.db.sellers loaded  rows=3095  partition=seller_state
+2026-04-08 12:14:47 | INFO     | src.ingestion.bronze_ingestion | Bronze ingestion complete — all 9 tables loaded ✅

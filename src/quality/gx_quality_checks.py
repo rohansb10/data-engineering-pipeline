@@ -24,24 +24,25 @@ Usage
 from __future__ import annotations
 
 import argparse
-import os
 import sys
 import yaml
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import great_expectations as gx
 from pyspark.sql import SparkSession, DataFrame
 
+from src.config.runtime import fq_table, get_runtime_settings, project_root
 from src.utils.spark_session import get_spark_session
 from src.utils.logger import get_logger
 
 log = get_logger(__name__)
+SETTINGS = get_runtime_settings()
 
 # ── Paths ──────────────────────────────────────────────────────────────────
 
-GX_SUITES_DIR = Path("/home/rohan/projects/airflow/gx/suites")
+GX_SUITES_DIR = project_root() / "gx" / "suites"
 
 
 # ── Suite spec ─────────────────────────────────────────────────────────────
@@ -58,12 +59,12 @@ class SuiteSpec:
 
 SUITE_REGISTRY: list[SuiteSpec] = [
     # Bronze
-    SuiteSpec("local.db.orders",          "bronze_orders_suite.yml",          "bronze_orders",          "bronze"),
-    SuiteSpec("local.db.customers",       "bronze_customers_suite.yml",       "bronze_customers",       "bronze"),
+    SuiteSpec(fq_table("orders", SETTINGS), "bronze_orders_suite.yml", "bronze_orders", "bronze"),
+    SuiteSpec(fq_table("customers", SETTINGS), "bronze_customers_suite.yml", "bronze_customers", "bronze"),
     # Silver
-    SuiteSpec("local.db.silver_order_payments", "silver_order_payments_suite.yml", "silver_payments",   "silver"),
+    SuiteSpec(fq_table("silver_order_payments", SETTINGS), "silver_order_payments_suite.yml", "silver_payments", "silver"),
     # Gold
-    SuiteSpec("local.db.gold_order_summary",    "gold_order_summary_suite.yml",    "gold_order_summary","gold",  critical=True),
+    SuiteSpec(fq_table("gold_order_summary", SETTINGS), "gold_order_summary_suite.yml", "gold_order_summary", "gold", critical=True),
 ]
 
 
@@ -72,6 +73,8 @@ SUITE_REGISTRY: list[SuiteSpec] = [
 def load_suite(context: gx.AbstractDataContext, yaml_file: str) -> gx.ExpectationSuite:
     """Load (or retrieve if already registered) an ExpectationSuite from YAML."""
     yaml_path = GX_SUITES_DIR / yaml_file
+    if not yaml_path.exists():
+        raise FileNotFoundError(f"GX suite file does not exist: {yaml_path}")
     with open(yaml_path, "r") as fh:
         cfg = yaml.safe_load(fh)
 

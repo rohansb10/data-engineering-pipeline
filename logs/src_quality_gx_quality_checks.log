@@ -233,3 +233,175 @@
 2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=GOLD
 2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ================================================================
 2026-03-29 05:01:23 | INFO     | src.quality.gx_quality_checks | ✅  local.db.gold_order_summary  passed=19 failed=0 [CRITICAL]
+2026-04-08 12:09:41 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:09:41 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:09:41 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.test_table
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 5  Failed: 0  Total: 5
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake [BRONZE layer] …
+2026-04-08 12:09:46 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:09:47 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake2 [BRONZE layer] …
+2026-04-08 12:09:47 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake2
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:09:48 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:09:48 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake2  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:11:18 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:11:18 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:11:18 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.test_table
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 5  Failed: 0  Total: 5
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake [BRONZE layer] …
+2026-04-08 12:11:22 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:11:23 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake2 [BRONZE layer] …
+2026-04-08 12:11:23 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake2
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:11:24 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:11:24 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake2  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:12:28 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:12:28 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:12:28 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.test_table
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 5  Failed: 0  Total: 5
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake [BRONZE layer] …
+2026-04-08 12:12:32 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:12:33 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | Validating local.db.fake2 [BRONZE layer] …
+2026-04-08 12:12:33 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: test_suite.yml
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.fake2
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | Overall: ❌ FAILED  |  Passed: 3  Failed: 2  Total: 5
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks |  1. ❌  expect_column_values_to_be_between on [review_score] range=[1.0 – 5.0] mostly=80%
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks |  4. ❌  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:12:34 | WARNING  | src.quality.gx_quality_checks |     ↳ 2 unexpected value(s)  (100.0% of rows)
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 1000]
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | GX QUALITY CHECK SUMMARY  |  layer=BRONZE
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:12:34 | INFO     | src.quality.gx_quality_checks | ❌  local.db.fake2  passed=3 failed=2 [CRITICAL]
+2026-04-08 12:14:58 | INFO     | src.quality.gx_quality_checks | Validating local.db.orders [BRONZE layer] …
+2026-04-08 12:15:00 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_orders_suite.yml
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | GX VALIDATION REPORT  |  local.db.orders
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | Overall: ✅ PASSED  |  Passed: 12  Failed: 0  Total: 12
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | ----------------------------------------------------------------
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  1. ✅  expect_column_to_exist on [order_id]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  2. ✅  expect_column_values_to_not_be_null on [order_id]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  3. ✅  expect_column_values_to_be_unique on [order_id]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  4. ✅  expect_column_to_exist on [customer_id]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  5. ✅  expect_column_values_to_not_be_null on [customer_id]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  6. ✅  expect_column_to_exist on [order_status]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  7. ✅  expect_column_values_to_not_be_null on [order_status]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  8. ✅  expect_column_values_to_be_in_set on [order_status] set=['delivered', 'shipped', 'processing', 'canceled', 'unavailable', 'invoiced', 'created', 'approved']
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks |  9. ✅  expect_column_to_exist on [order_purchase_timestamp]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | 10. ✅  expect_column_to_exist on [order_delivered_customer_date]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | 11. ✅  expect_column_to_exist on [order_estimated_delivery_date]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | 12. ✅  expect_table_row_count_to_be_between on [table-level] range=[1 – 200000]
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | ================================================================
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | Validating local.db.customers [BRONZE layer] …
+2026-04-08 12:15:08 | INFO     | src.quality.gx_quality_checks | Loaded suite from YAML: bronze_customers_suite.yml

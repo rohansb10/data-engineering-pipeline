@@ -12,27 +12,23 @@ Reads from Silver Iceberg tables and produces three Gold outputs:
 
 from __future__ import annotations
 import sys
-import os
-
-sys.path.append("/home/rohan/projects/airflow")
 
 from pyspark.sql import SparkSession, DataFrame
 from pyspark.sql.functions import (
     avg,
-    broadcast,
     col,
     count,
-    first,
-    max as spark_max,
     round as spark_round,
     sum as spark_sum,
     when,
 )
 
+from src.config.runtime import fq_table, get_runtime_settings
 from src.utils.spark_session import get_spark_session
 from src.utils.logger import get_logger
 
 log = get_logger(__name__)
+SETTINGS = get_runtime_settings()
 
 
 # ---------------------------------------------------------------------------
@@ -60,10 +56,10 @@ def build_order_summary(spark: SparkSession) -> DataFrame:
     Enriched per-order fact table joining orders ▷ customers ▷
     reviews ▷ payments.
     """
-    orders   = _read(spark, "local.db.silver_orders").alias("o")
-    customers = _read(spark, "local.db.silver_customers").alias("c")
-    reviews  = _read(spark, "local.db.silver_order_reviews").alias("r")
-    payments = _read(spark, "local.db.silver_order_payments").alias("p")
+    orders = _read(spark, fq_table("silver_orders", SETTINGS)).alias("o")
+    customers = _read(spark, fq_table("silver_customers", SETTINGS)).alias("c")
+    reviews = _read(spark, fq_table("silver_order_reviews", SETTINGS)).alias("r")
+    payments = _read(spark, fq_table("silver_order_payments", SETTINGS)).alias("p")
 
     return (
         orders
@@ -92,7 +88,7 @@ def build_state_payment_agg(spark: SparkSession) -> DataFrame:
     KPI aggregation grouped by customer_state × payment_type.
     Great for dashboards & BI tools.
     """
-    summary = _read(spark, "local.db.gold_order_summary")
+    summary = _read(spark, fq_table("gold_order_summary", SETTINGS))
     return (
         summary
         .groupBy("customer_state", "payment_type")
@@ -111,7 +107,7 @@ def build_state_payment_agg(spark: SparkSession) -> DataFrame:
 
 def build_revenue_by_order(spark: SparkSession) -> DataFrame:
     """Revenue + freight aggregated to order level."""
-    order_items = _read(spark, "local.db.silver_order_items")
+    order_items = _read(spark, fq_table("silver_order_items", SETTINGS))
     return (
         order_items
         .groupBy("order_id")
@@ -134,9 +130,9 @@ def run_gold_transform(spark: SparkSession | None = None) -> None:
 
     # Order matters: state_payment_agg reads gold_order_summary
     pipeline = [
-        ("local.db.gold_order_summary",     build_order_summary),
-        ("local.db.gold_revenue_by_order",  build_revenue_by_order),
-        ("local.db.gold_state_payment_agg", build_state_payment_agg),
+        (fq_table("gold_order_summary", SETTINGS), build_order_summary),
+        (fq_table("gold_revenue_by_order", SETTINGS), build_revenue_by_order),
+        (fq_table("gold_state_payment_agg", SETTINGS), build_state_payment_agg),
     ]
 
     failed = []
@@ -150,7 +146,7 @@ def run_gold_transform(spark: SparkSession | None = None) -> None:
 
     if failed:
         log.error("Gold transform finished with failures: %s", failed)
-        sys.exit(1)
+        raise RuntimeError(f"Gold transform failed for tables: {failed}")
     else:
         log.info("Gold transform complete ✅")
 
@@ -160,4 +156,7 @@ def run_gold_transform(spark: SparkSession | None = None) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    run_gold_transform()
+    try:
+        run_gold_transform()
+    except RuntimeError:
+        sys.exit(1)

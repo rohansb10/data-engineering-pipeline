@@ -10,10 +10,10 @@ spark:
   log_level: ERROR
 
 paths:
-  data_root: /home/rohan/projects/airflow/data
-  warehouse: /home/rohan/projects/airflow/data_warehouse/iceberg_warehouse
-  iceberg_jar: /home/rohan/projects/airflow/data_warehouse/iceberg-spark-runtime-4.0_2.13-1.10.1.jar
-  logs: /home/rohan/projects/airflow/logs
+  data_root: data
+  warehouse: data_warehouse/iceberg_warehouse
+  iceberg_jar: data_warehouse/iceberg-spark-runtime-4.0_2.13-1.10.1.jar
+  logs: logs
 
 iceberg:
   catalog: local
@@ -39,3 +39,5 @@ airflow:
   max_active_runs: 1
   default_retries: 2
   retry_delay_minutes: 5
+  email_on_failure: false
+  email_on_retry: false
